@@ -18,4 +18,13 @@ public static class Utils
             0
         );
     }
+
+    // 指定された 2 つの位置から角度を求めて返す
+    public static float GetAngle(Vector2 from, Vector2 to)
+    {
+        var dx = to.x - from.x;
+        var dy = to.y - from.y;
+        var rad = Mathf.Atan2(dy, dx);
+        return rad * Mathf.Rad2Deg;
+    }
 }

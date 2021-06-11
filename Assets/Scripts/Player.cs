@@ -17,5 +17,8 @@ public class Player : MonoBehaviour
         // 矢印キーが押されている方向にプレイヤーを移動する
         var velocity = new Vector3( h, v ) * m_speed;
         transform.localPosition += velocity;
+
+        // プレイヤーが画面外に出ないように位置を制限する
+        transform.localPosition = Utils.ClampPosition(transform.localPosition);
     }
 }

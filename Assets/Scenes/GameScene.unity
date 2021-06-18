@@ -299,6 +299,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 0.01
+  m_shotPrefab: {fileID: 4426679722762436531, guid: 8591776dcc929d7469aa043d6777715c,
+    type: 3}
+  m_shotSpeed: 0.1
+  m_shotAngleRange: 40
+  m_shotTimer: 0
+  m_shotCount: 7
+  m_shotInterval: 0.1
 --- !u!1 &1752716665
 GameObject:
   m_ObjectHideFlags: 0

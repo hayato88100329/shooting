@@ -13,7 +13,31 @@ public class Player : MonoBehaviour
     public int m_shotCount; // 弾の発射数
     public float m_shotInterval; // 弾の発射間隔（秒）
 
+    public int m_hpMax; // HP の最大値
+    public int m_hp; // HP
+
     // 毎フレーム呼び出される関数
+    // ダメージを受ける関数
+    // 敵とぶつかった時に呼び出される
+    public void Damage(int damage)
+    {
+        // HP を減らす
+        m_hp -= damage;
+
+        // HP がまだある場合、ここで処理を終える
+        if (0 < m_hp) return;
+
+        // プレイヤーが死亡したので非表示にする
+        // 本来であれば、ここでゲームオーバー演出を再生したりする
+        gameObject.SetActive(false);
+    }
+
+    // ゲーム開始時に呼び出される関数
+    private void Awake()
+    {
+        m_hp = m_hpMax; // HP
+    }
+
     private void Update()
     {
 
@@ -90,5 +114,7 @@ public class Player : MonoBehaviour
             // 弾を発射する方向と速さを設定する
             shot.Init(angleBase, speed);
         }
+
+
     }
 }

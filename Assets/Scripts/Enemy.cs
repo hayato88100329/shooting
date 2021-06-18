@@ -87,6 +87,14 @@ public class Enemy : MonoBehaviour
     // 他のオブジェクトと衝突した時に呼び出される関数
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // プレイヤーと衝突した場合
+        if (collision.name.Contains("Player"))
+        {
+            // プレイヤーにダメージを与える
+            var player = collision.GetComponent<Player>();
+            player.Damage(m_damage);
+            return;
+        }
         // 弾と衝突した場合
         if (collision.name.Contains("Shot"))
         {

@@ -84,4 +84,23 @@ public class Enemy : MonoBehaviour
         // 位置を反映する
         transform.localPosition = pos;
     }
+    // 他のオブジェクトと衝突した時に呼び出される関数
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // 弾と衝突した場合
+        if (collision.name.Contains("Shot"))
+        {
+            // 弾を削除する
+            Destroy(collision.gameObject);
+
+            // 敵の HP を減らす
+            m_hp--;
+
+            // 敵の HP がまだ残っている場合はここで処理を終える
+            if (0 < m_hp) return;
+
+            // 敵を削除する
+            Destroy(gameObject);
+        }
+    }
 }

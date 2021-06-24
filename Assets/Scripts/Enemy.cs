@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     private int m_hp; // HP
     private Vector3 m_direction; // 進行方向
 
+    public Explosion m_explosionPrefab; // 爆発エフェクトのプレハブ
+
     // 敵が生成された時に呼び出される関数
     private void Start()
     {
@@ -98,6 +100,12 @@ public class Enemy : MonoBehaviour
         // 弾と衝突した場合
         if (collision.name.Contains("Shot"))
         {
+            // 弾が当たった場所に爆発エフェクトを生成する
+            Instantiate(
+                m_explosionPrefab,
+                collision.transform.localPosition,
+                Quaternion.identity);
+
             // 弾を削除する
             Destroy(collision.gameObject);
 

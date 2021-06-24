@@ -348,15 +348,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de4b10c465723b43806f039419c1921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 0.05
+  m_speed: 0.02
   m_shotPrefab: {fileID: 4426679722762436531, guid: 8591776dcc929d7469aa043d6777715c,
     type: 3}
   m_shotSpeed: 0.1
-  m_shotAngleRange: 30
+  m_shotAngleRange: 50
   m_shotTimer: 0
-  m_shotCount: 3
+  m_shotCount: 5
   m_shotInterval: 0.2
-  m_hpMax: 10
+  m_hpMax: 1000
   m_hp: 0
 --- !u!61 &719594546
 BoxCollider2D:

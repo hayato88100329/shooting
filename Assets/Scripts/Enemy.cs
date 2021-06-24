@@ -27,6 +27,8 @@ public class Enemy : MonoBehaviour
 
     public Explosion m_explosionPrefab; // 爆発エフェクトのプレハブ
 
+    public bool m_isFollow; // プレイヤーを追尾する場合 true
+
     // 敵が生成された時に呼び出される関数
     private void Start()
     {
@@ -36,7 +38,25 @@ public class Enemy : MonoBehaviour
 
     // 毎フレーム呼び出される関数
     private void Update()
-    {
+    {// プレイヤーを追尾する場合
+        if (m_isFollow)
+        {
+            // プレイヤーの現在位置へ向かうベクトルを作成する
+            var angle = Utils.GetAngle(
+                transform.localPosition,
+                Player.m_instance.transform.localPosition);
+            var direction = Utils.GetDirection(angle);
+
+            // プレイヤーが存在する方向に移動する
+            transform.localPosition += direction * m_speed;
+
+            // プレイヤーが存在する方向を向く
+            var angles = transform.localEulerAngles;
+            angles.z = angle - 90;
+            transform.localEulerAngles = angles;
+            return;
+        }
+
         // まっすぐ移動する
         transform.localPosition += m_direction * m_speed;
     }

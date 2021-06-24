@@ -16,6 +16,9 @@ public class Player : MonoBehaviour
     public int m_hpMax; // HP の最大値
     public int m_hp; // HP
 
+    // プレイヤーのインスタンスを管理する static 変数
+    public static Player m_instance;
+
     // 毎フレーム呼び出される関数
     // ダメージを受ける関数
     // 敵とぶつかった時に呼び出される
@@ -35,6 +38,10 @@ public class Player : MonoBehaviour
     // ゲーム開始時に呼び出される関数
     private void Awake()
     {
+        // 他のクラスからプレイヤーを参照できるように
+        // static 変数にインスタンス情報を格納する
+        m_instance = this;
+
         m_hp = m_hpMax; // HP
     }
 

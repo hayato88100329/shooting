@@ -235,6 +235,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enemyPrefabs:
   - {fileID: 2202471307489232500, guid: f4e4212097a4aae42a9e5d5aee72d388, type: 3}
+  - {fileID: 2202471307489232500, guid: 93760a852f169164e80b31f6da20335d, type: 3}
+  - {fileID: 2202471307489232500, guid: b92a0dac1a2d33d4ebe7fdbf0c1fdd38, type: 3}
+  - {fileID: 2202471307489232500, guid: f94657d8c6ec5eb41808a03f9174c653, type: 3}
   m_interval: 0.5
 --- !u!4 &392751206
 Transform:
@@ -349,7 +352,7 @@ MonoBehaviour:
   m_shotPrefab: {fileID: 4426679722762436531, guid: 8591776dcc929d7469aa043d6777715c,
     type: 3}
   m_shotSpeed: 0.1
-  m_shotAngleRange: 40
+  m_shotAngleRange: 30
   m_shotTimer: 0
   m_shotCount: 3
   m_shotInterval: 0.2

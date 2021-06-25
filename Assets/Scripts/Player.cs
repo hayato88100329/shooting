@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     // 毎フレーム呼び出される関数
     // ダメージを受ける関数
     // 敵とぶつかった時に呼び出される
+
+    public float m_magnetDistance; // 宝石を引きつける距離
+
     public void Damage(int damage)
     {
         // HP を減らす

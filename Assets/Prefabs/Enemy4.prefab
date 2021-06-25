@@ -105,6 +105,13 @@ MonoBehaviour:
   m_explosionPrefab: {fileID: 2104167622090733036, guid: 5d1b6e45d4730934485fbc9db5b74169,
     type: 3}
   m_isFollow: 1
+  m_gemPrefabs:
+  - {fileID: -2898497631477395922, guid: 3afff9497629ec44fb8c4235722e8d10, type: 3}
+  - {fileID: -5999474060151599865, guid: e7ecf4a9a21316d4e8a1c5a2db49cd79, type: 3}
+  - {fileID: 3124630575234356108, guid: bdd164752d77bd344a2529a5f4419efc, type: 3}
+  - {fileID: -4068032797814631908, guid: fb37f5b36c3916e4684f9b0b9e5d6f16, type: 3}
+  m_gemSpeedMin: 0.0125
+  m_gemSpeedMax: 0.125
 --- !u!61 &-2349649436017924548
 BoxCollider2D:
   m_ObjectHideFlags: 0

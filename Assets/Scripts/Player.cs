@@ -32,8 +32,15 @@ public class Player : MonoBehaviour
     public int m_prevNeedExp; // 前のレベルに必要だった経験値
     public int m_needExp; // 次のレベルに必要な経験値
 
+    public AudioClip m_levelUpClip; // レベルアップした時に再生する SE
+    public AudioClip m_damageClip; // ダメージを受けた時に再生する SE
+
     public void Damage(int damage)
     {
+        // ダメージを受けた時の SE を再生する
+        var audioSource = FindObjectOfType<AudioSource>();
+        audioSource.PlayOneShot(m_damageClip);
+
         // HP を減らす
         m_hp -= damage;
 
@@ -75,6 +82,11 @@ public class Player : MonoBehaviour
         ShootNWay(angleBase, angleRange, 0.15f, count);
         ShootNWay(angleBase, angleRange, 0.2f, count);
         ShootNWay(angleBase, angleRange, 0.25f, count);
+
+        // レベルアップした時の SE を再生する
+        var audioSource = FindObjectOfType<AudioSource>();
+        audioSource.PlayOneShot(m_levelUpClip);
+
     }
 
     // 指定されたレベルに必要な経験値を計算する関数

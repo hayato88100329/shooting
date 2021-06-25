@@ -35,6 +35,8 @@ public class Enemy : MonoBehaviour
     public float m_gemSpeedMin; // 生成する宝石の移動の速さ（最小値）
     public float m_gemSpeedMax; // 生成する宝石の移動の速さ（最大値）
 
+    public AudioClip m_deathClip; // 敵を倒した時に再生する SE
+
     // 敵が生成された時に呼び出される関数
     private void Start()
     {
@@ -174,8 +176,13 @@ public class Enemy : MonoBehaviour
             // 敵の HP がまだ残っている場合はここで処理を終える
             if (0 < m_hp) return;
 
+            // 敵を倒した時の SE を再生する
+            var audioSource = FindObjectOfType<AudioSource>();
+            audioSource.PlayOneShot(m_deathClip);
+
             // 敵を削除する
             Destroy(gameObject);
         }
+
     }
 }

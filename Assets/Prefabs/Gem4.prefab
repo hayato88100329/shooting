@@ -4830,6 +4830,7 @@ MonoBehaviour:
   m_exp: 4
   m_brake: 0.9
   m_followAccel: 0.01
+  m_goldClip: {fileID: 8300000, guid: 8422308b50ebf0246a2dd5f39bc5b0af, type: 3}
 --- !u!61 &3473749670050517242
 BoxCollider2D:
   m_ObjectHideFlags: 0

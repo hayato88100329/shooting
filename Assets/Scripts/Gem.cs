@@ -17,6 +17,8 @@ public class Gem : MonoBehaviour
     private bool m_isFollow; // プレイヤーを追尾するモードに入った場合 true
     private float m_followSpeed; // プレイヤーを追尾する速さ
 
+    public AudioClip m_goldClip; // 宝石を取得した時に再生する SE
+
     // 毎フレーム呼び出される関数
     private void Update()
     {
@@ -96,6 +98,10 @@ public class Gem : MonoBehaviour
         // プレイヤーの経験値を増やす
         var player = collision.GetComponent<Player>();
         player.AddExp(m_exp);
+
+        // 宝石を取得した時の SE を再生する
+        var audioSource = FindObjectOfType<AudioSource>();
+        audioSource.PlayOneShot(m_goldClip);
 
     }
 

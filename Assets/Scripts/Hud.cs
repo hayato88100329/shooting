@@ -9,6 +9,8 @@ public class Hud : MonoBehaviour
     public Image m_hpGauge; // HP ゲージ
     public Image m_expGauge; // 経験値ゲージ
 
+    public Text m_levelText;// レベルのテキスト
+
     // 毎フレーム呼び出される関数
     private void Update()
     {
@@ -26,5 +28,10 @@ public class Hud : MonoBehaviour
         var needExp = player.m_needExp;
         m_expGauge.fillAmount =
             (float)(exp - prevNeedExp) / (needExp - prevNeedExp);
+
+        // レベルのテキストの表示を更新する
+        m_levelText.text = player.m_level.ToString();
+
+
     }
 }

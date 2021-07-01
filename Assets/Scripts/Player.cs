@@ -35,6 +35,14 @@ public class Player : MonoBehaviour
     public AudioClip m_levelUpClip; // レベルアップした時に再生する SE
     public AudioClip m_damageClip; // ダメージを受けた時に再生する SE
 
+    public int m_levelMax; // レベルの最大値
+    public int m_shotCountFrom; // 弾の発射数（レベルが最小値の時）
+    public int m_shotCountTo; // 弾の発射数（レベルが最大値の時）
+    public float m_shotIntervalFrom; // 弾の発射間隔（秒）（レベルが最小値の時）
+    public float m_shotIntervalTo; // 弾の発射間隔（秒）（レベルが最大値の時）
+    public float m_magnetDistanceFrom; // 宝石を引きつける距離（レベルが最小値の時）
+    public float m_magnetDistanceTo; // 宝石を引きつける距離（レベルが最大値の時）
+
     public void Damage(int damage)
     {
         // ダメージを受けた時の SE を再生する
@@ -87,6 +95,15 @@ public class Player : MonoBehaviour
         var audioSource = FindObjectOfType<AudioSource>();
         audioSource.PlayOneShot(m_levelUpClip);
 
+        // レベルアップしたので、各種パラメータを更新する
+        var t = (float)(m_level - 1) / (m_levelMax - 1);
+        m_shotCount = Mathf.RoundToInt(
+            Mathf.Lerp(m_shotCountFrom, m_shotCountTo, t)); // 弾の発射数
+        m_shotInterval = Mathf.Lerp(
+            m_shotIntervalFrom, m_shotIntervalTo, t); // 弾の発射間隔（秒）
+        m_magnetDistance = Mathf.Lerp(
+            m_magnetDistanceFrom, m_magnetDistanceTo, t); // 宝石を引きつける距離
+
     }
 
     // 指定されたレベルに必要な経験値を計算する関数
@@ -117,6 +134,11 @@ public class Player : MonoBehaviour
 
         m_level = 1; // レベル
         m_needExp = GetNeedExp(1); // 次のレベルに必要な経験値
+
+        m_shotCount = m_shotCountFrom; // 弾の発射数
+        m_shotInterval = m_shotIntervalFrom; // 弾の発射間隔（秒）
+        m_magnetDistance = m_magnetDistanceFrom; // 宝石を引きつける距離
+        
     }
 
     private void Update()

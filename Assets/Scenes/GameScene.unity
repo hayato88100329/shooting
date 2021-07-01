@@ -318,7 +318,10 @@ MonoBehaviour:
   - {fileID: 2202471307489232500, guid: 93760a852f169164e80b31f6da20335d, type: 3}
   - {fileID: 2202471307489232500, guid: b92a0dac1a2d33d4ebe7fdbf0c1fdd38, type: 3}
   - {fileID: 2202471307489232500, guid: f94657d8c6ec5eb41808a03f9174c653, type: 3}
-  m_interval: 0.5
+  m_intervalFrom: 1
+  m_intervalTo: 0.25
+  m_elapsedTimeMax: 60
+  m_elapsedTime: 0
 --- !u!4 &392751206
 Transform:
   m_ObjectHideFlags: 0
@@ -657,7 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de4b10c465723b43806f039419c1921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 0.02
+  m_speed: 0.05
   m_shotPrefab: {fileID: 4426679722762436531, guid: 8591776dcc929d7469aa043d6777715c,
     type: 3}
   m_shotSpeed: 0.1
@@ -665,7 +668,7 @@ MonoBehaviour:
   m_shotTimer: 0
   m_shotCount: 5
   m_shotInterval: 0.2
-  m_hpMax: 10
+  m_hpMax: 1000
   m_hp: 0
   m_magnetDistance: 2
   m_nextExpBase: 16
@@ -676,6 +679,13 @@ MonoBehaviour:
   m_needExp: 0
   m_levelUpClip: {fileID: 8300000, guid: 81cee290f99077f469434a3b8af49b5c, type: 3}
   m_damageClip: {fileID: 8300000, guid: 067e1e699d1e2144d8ed42ca4f8ae84b, type: 3}
+  m_levelMax: 10
+  m_shotCountFrom: 1
+  m_shotCountTo: 4
+  m_shotIntervalFrom: 0.4
+  m_shotIntervalTo: 0.2
+  m_magnetDistanceFrom: 1
+  m_magnetDistanceTo: 2
 --- !u!61 &719594546
 BoxCollider2D:
   m_ObjectHideFlags: 0

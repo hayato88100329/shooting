@@ -11,6 +11,9 @@ public class Hud : MonoBehaviour
 
     public Text m_levelText;// レベルのテキスト
 
+    public GameObject m_gameOverText; // ゲームオーバーのテキスト
+
+
     // 毎フレーム呼び出される関数
     private void Update()
     {
@@ -32,6 +35,8 @@ public class Hud : MonoBehaviour
         // レベルのテキストの表示を更新する
         m_levelText.text = player.m_level.ToString();
 
+        // プレイヤーが非表示ならゲームオーバーと表示する
+        m_gameOverText.SetActive(!player.gameObject.activeSelf);
 
     }
 }
